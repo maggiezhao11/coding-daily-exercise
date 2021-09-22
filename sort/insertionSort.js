@@ -6,7 +6,7 @@ for(let i = 1; i < arr.length; i++) {
   let current = arr[i];
   let preIndex = i - 1;
   // let preCurrent = arr[i - 1];
-  // using preCurrent doesn't work, it has to be changed to arr[preIndex];
+  // using preCurrent doesn't work, it has to be changed to arr[preIndex], because preIndex keeps changing once goes to the inner loop. 
    while ( preIndex >= 0 && current < arr[preIndex]) {
      arr[preIndex + 1] = arr[preIndex];
     preIndex --;
@@ -14,6 +14,17 @@ for(let i = 1; i < arr.length; i++) {
   
 } return arr;
 }
+
+//better way of solving problem by assigning two index; 
+
+// let j = i - 1;
+//     let current = arr[i];
+//     while(j >= 0 && current < arr[j]) {
+//       arr[j + 1] = arr[j];
+//       j--;
+//     }
+//     arr[j + 1] = current;
+
 
 insertionSort(array);
 
