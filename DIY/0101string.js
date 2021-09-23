@@ -9,27 +9,32 @@ const input = "11100100111101011";
 const findInputCount = function (string) {
   let count0 = [];
   let count1 = [];
+  let outcome = {
+    count0,
+    count1,
+  };
 
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length - 1; i++) {
     let counter1 = 0;
     let counter0 = 0;
     if (string[i + 1] === string[i] && string[i] === 1) {
-      counter1++;
+      // counter1++;
       continue;
     } else if (string[i + 1] !== string[i]) {
       counter1++;
       count1.push(counter1);
-      }
-    
+    }
+
     if (string[i + 1] === string[i] && string[i] === 0) {
-      counter0++;
+      // counter0++;
       continue;
     } else if (string[i + 1] !== string[i]) {
       counter0++;
       count0.push(counter0);
     }
   }
+  return outcome;
 };
 
 findInputCount(input);
-console.log();
+console.log(findInputCount(input));
