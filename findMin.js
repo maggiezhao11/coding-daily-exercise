@@ -15,8 +15,31 @@ const findMin = function (array) {
 
 findMin(arr);
 
+
+const findMinIndex = function (array) {
+
+  let minIndex = 0;
+	
+	for(let i = 0; i < array.length; i++) {
+		if(array[minIndex] > array[i]) {
+			array[minIndex] = array[i];	
+      minIndex = i; 	
+		}
+	}
+	
+}
+
+findMin(arr);
+
 console.log(min);
 
 
 //outcome:11
+
+for(let i = 0; i < array.length; i++ ) {
+  if(array[i] < min) {
+    min = array[i]
+  }  
+}
+
 
