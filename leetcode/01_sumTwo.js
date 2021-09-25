@@ -4,24 +4,34 @@
 
 // You can return the answer in any order.
 
-
 // Input: nums = [2,7,11,15], target = 9
 // Output: [0,1]
 // Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
-
-const nums = [3,8,9,12];
+const nums = [3, 8, 9, 12];
 const target = 15;
-// const outcome = [];
-const map = {};
 
 const sumTwo = function (array, target) {
-  for(let i = 0; i < array.lenth; i++) {
-    map[i] = true;
+  var map = {};
 
+  for (let i = 0; i < array.length; i++) {
+    map[array[i]] = i;
+
+    const balance = target - array[i];
+
+    if (balance in map) {
+      //map index is always smaller than the actual index. 
+      return [map[balance], i];
+    }
   }
+};
 
-}
+let result = sumTwo(nums, target);
+
+// // console.log(nums);
+// // console.log(target);
+
+console.log(result);
 
 // const sumTwo = function (array, target) {
 //   for(let i = 0; i < array.length - 1; i++) {
@@ -40,8 +50,6 @@ sumTwo(nums, target);
 // console.log(outcome);
 console.log(sumTwo(nums, target));
 
-
-
 // const nums = [3,8,9,12];
 // const target = 15;
 // const outcome = [];
@@ -55,7 +63,7 @@ console.log(sumTwo(nums, target));
 //       }
 //     }
 //   }
-	
+
 // }
 
 // sumTwo(nums, target);
